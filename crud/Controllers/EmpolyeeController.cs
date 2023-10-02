@@ -46,11 +46,11 @@ namespace crud.Controllers
             //}
 
             emp.Id = new Guid();
-            //var Result = await _employeeDbcontext.Employee.AsQueryable().Where(x => x.Email == Employees.Email).AnyAsync();
-            //if (Result)
-            //{
-            //    return Conflict("Email Already Exist");
-            //}
+            var Result = await _employeeDbcontext.Employee.AsQueryable().Where(x => x.Email == Employees.Email).AnyAsync();
+            if (Result)
+            {
+                return Conflict("Email Already Exist");
+            }
 
            
             
